@@ -1,0 +1,73 @@
+package excercise;
+import java.util.Scanner;
+import java.util.Arrays;
+
+
+public class fail {
+	Scanner input = new Scanner(System.in);
+	int N = input.nextInt();
+	int length= input.nextInt();
+	int[] stages = new int[length];
+	float[] number = new float[N];
+	int[] result = new int[N];
+	
+	public void Input() {
+		for (int i =0; i<stages.length; i++) {
+			stages[i]= input.nextInt();			
+			}
+		
+	}
+		
+	public void calculate() {
+		
+		float x = stages.length; 
+        float y = stages.length;
+    for(int i=0; i<N; i++) {
+        float k = 0; 
+        for(int j = 0 ; j<stages.length; j++) {
+        if( i+1 == stages[j]) { 
+            k+= 1/y;  
+            number[i] = k;
+            x--;
+        }
+        else if(stages[j] > N) {
+            number[number.length-1] = 0;
+        }
+        }
+        y = x;
+    }
+    
+				
+				
+			for (int a=0; a<result.length; a++) {
+				int temp=0;
+				for (int b=0; b<result.length; b++) { 
+					if(number[a]<number[b]) {
+						temp++;
+						
+					}
+					if(number[a]==number[b] && a>b) {
+						temp++;
+			        }  
+					
+				
+			}
+				result[temp]=a+1;
+		}
+			for (int d=0; d<number.length; d++) {
+				System.out.println(number[d]);
+			}
+			
+			for (int u=0; u<result.length; u++) {
+				System.out.println(result[u]);
+			}
+	
+	}
+		
+	public static void main(String[] args) {
+		
+		fail s1= new fail();
+		s1.Input();
+		s1.calculate();
+	}
+}
